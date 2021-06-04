@@ -1,0 +1,18 @@
+{
+  "welcomeFile": "index.html",
+  "authenticationMethod": "none",
+  "sessionTimeout": 10,
+  "routes": [	
+    {
+      "authenticationType": "none",
+      "csrfProtection": false,
+      "source": "^/sap/opu/odata/sap/ZMAY_2021_SRV/",
+      "destination": "CFN_NEW"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt"
+    }    
+  ]
+}
