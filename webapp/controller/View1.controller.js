@@ -10,7 +10,7 @@ sap.ui.define([
             //So we are getting the same.
             this.Router = this.getOwnerComponent().getRouter();
             this.Router.getRoute("detail").attachPatternMatched(this.herculis, this);
-        },
+        }, 
         onAdd: function(){
             this.Router.navTo("add");
         },
