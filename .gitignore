@@ -9,3 +9,6 @@ fioriHtmlRunner.html
 .*/fioriHtmlRunner.html
 visual_ext_index.html
 /webapp/visual_ext_index.html
+dist
+.ABAPDeployResources/ZZ1_JUNE/dist.zip
+.ABAPDeployResources/ZZ1_JUNEtmp
