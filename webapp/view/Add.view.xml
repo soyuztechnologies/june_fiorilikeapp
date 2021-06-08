@@ -1,4 +1,4 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="emc.hr.payroll.controller.Add">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="emc.hr.payroll.controller.Add">
     <Page title="Add New Product" showNavButton="true" navButtonPress="onBack">
         <VBox class="sapUiSmallMargin">
 		<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Product Data" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
@@ -25,11 +25,28 @@
                 <Input value="{viewModel>/productData/CURRENCY_CODE}"/>
 			</f:content>
 		</f:SimpleForm>
-        <sap.ui.comp.smarttable:SmartTable width="100%" direction="Column" 
-        entitySet="{viewModel>/productData/To_Orders}"
-        fitContainer="true" tableType="ResponsiveTable" header="Smart Table"
-         enableAutoBinding="true" xmlns:sap.ui.comp.smarttable="sap.ui.comp.smarttable" 
-         id="table0"/>
+        <Table id="idTable" items="{viewModel>/productData/To_Orders}">
+            <columns>   
+                <Column>
+                    <header>
+                        <Text text="Order Id" />
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Text text="Buyer Id" />
+                    </header>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem >
+                    <cells>
+                        <Text text="{viewModel>SO_ID}"></Text>
+                        <Text text="{viewModel>BUYER_ID}"></Text>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
 	</VBox>
         
     <footer>

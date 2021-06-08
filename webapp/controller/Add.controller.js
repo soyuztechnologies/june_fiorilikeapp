@@ -44,18 +44,21 @@ sap.ui.define([
             //Step 2: Get the odata model object
             var oDataModel = this.getView().getModel();
             //Step 3: Fire the read call
+            this.getView().setBusy(true);
             oDataModel.read("/ProductSet('" + sText + "')", {
                 //Step 4: Handle success - set data to our local model
                 urlParameters: {
                     "$expand": "To_Orders"
                 },
                 success: function(data){
+                    that.getView().setBusy(false);
                     that.oModel.setProperty("/productData", data);
                     that.oModel.setProperty("/productData/To_Orders", data.To_Orders.results);
-                    //that.getView().byId("table0").setEntitySet("viewModel>/productData/To_Orders");
+                   // that.getView().byId("table0").setEntitySet("viewModel>/productData/To_Orders");
                 },
                 //Step 5: Error handling
                 error: function(oError){
+                    that.getView().setBusy(false);
                     MessageBox.error(JSON.parse(oError.responseText).error.innererror.errordetails[0].message);
                 }
             });
